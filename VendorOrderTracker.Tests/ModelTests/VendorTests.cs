@@ -13,11 +13,18 @@ namespace VendorOrderTracker.Tests
       // Deck.ClearAll();
     }
 
-    // [TestMethod]
-    // public void Deck_CreatesInstanceOfDeck_Deck()
-    // {
-    //   Deck deck = new Deck();
-    //   Assert.AreEqual(typeof(Deck), deck.GetType());
-    // }
+    [TestMethod]
+    public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
+    {
+      Vendor v = new Vendor("");
+      Assert.AreEqual(typeof(Vendor), v.GetType());
+    }
+
+    [TestMethod]
+    public void VendorConstructor_InitializeVendorName_String()
+    {
+      Vendor v = new Vendor("Suzie's Cafe");
+      Assert.AreEqual("Suzie's Cafe", v.Name);
+    }
   }
 }
