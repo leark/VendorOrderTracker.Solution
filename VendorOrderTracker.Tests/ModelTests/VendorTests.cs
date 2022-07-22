@@ -26,5 +26,14 @@ namespace VendorOrderTracker.Tests
       Vendor v = new Vendor("Suzie's Cafe");
       Assert.AreEqual("Suzie's Cafe", v.Name);
     }
+
+    [TestMethod]
+    public void GetAll_GetAllVendors_VendorList()
+    {
+      Vendor v1 = new Vendor("Suzie's Cafe");
+      Vendor v2 = new Vendor("Lee's Pizza Parlour");
+      List<Vendor> vList = new List<Vendor> { v1, v2 };
+      CollectionAssert.AreEqual(vList, Vendor.GetAll());
+    }
   }
 }

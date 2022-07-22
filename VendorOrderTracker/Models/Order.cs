@@ -10,7 +10,7 @@ namespace VendorOrderTracker.Models
     public int Price { get; }
     public DateTime Date { get; }
 
-    // date consists of length 3 array that holds
+    // int[] date consists of length 3 array that holds
     // { year, month, day }
     public Order(string title, string desc, int price, int[] date)
     {
