@@ -13,11 +13,11 @@ namespace VendorOrderTracker.Tests
       // Deck.ClearAll();
     }
 
-    // [TestMethod]
-    // public void Deck_CreatesInstanceOfDeck_Deck()
-    // {
-    //   Deck deck = new Deck();
-    //   Assert.AreEqual(typeof(Deck), deck.GetType());
-    // }
+    [TestMethod]
+    public void OrderConstructor_CreatesInstanceOfOrder_Order()
+    {
+      Order order = new Order();
+      Assert.AreEqual(typeof(Order), order.GetType());
+    }
   }
 }
