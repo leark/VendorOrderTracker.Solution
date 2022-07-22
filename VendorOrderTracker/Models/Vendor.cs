@@ -19,5 +19,9 @@ namespace VendorOrderTracker.Models
       return _vendors;
     }
 
+    public static void ClearAll()
+    {
+      _vendors = new List<Vendor> { };
+    }
   }
 }
