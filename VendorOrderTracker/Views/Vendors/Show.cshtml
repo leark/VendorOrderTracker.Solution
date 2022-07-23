@@ -3,4 +3,22 @@
 }
 @using VendorOrderTracker.Models;
 
-<h5>Vendor @Model.Name</h5>
+<div class="container">
+  <h5>Vendor @Model.Name</h5>
+  @{
+    List<Order> orders = Model.GetAllOrders();
+    if (orders.Count > 0)
+    {
+      <ul>
+        <li><a>They have orders.</a></li>
+      </ul>
+    }
+    else
+    {
+      <p>@Model.Name does not have any orders.</p>
+    }
+  }
+  <div>
+    <a href="/vendors/@Model.Id/orders/new">Create an order</a>
+  </div>
+</div>

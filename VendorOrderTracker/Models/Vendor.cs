@@ -20,7 +20,7 @@ namespace VendorOrderTracker.Models
       Id = _id;
     }
 
-    public List<Order> GetOrders()
+    public List<Order> GetAllOrders()
     {
       return Orders;
     }

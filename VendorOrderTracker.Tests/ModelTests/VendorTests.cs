@@ -40,11 +40,11 @@ namespace VendorOrderTracker.Tests
     public void GetOrders_ReturnEmptyOrder_OrderList()
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
-      CollectionAssert.AreEqual(new List<Order> { }, v1.GetOrders());
+      CollectionAssert.AreEqual(new List<Order> { }, v1.GetAllOrders());
     }
 
     [TestMethod]
-    public void GetOrders_ReturnOrders_OrderList()
+    public void AddOrder_AddOrder_Order()
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
       Order o1 = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
@@ -53,7 +53,21 @@ namespace VendorOrderTracker.Tests
       v1.AddOrder(o1);
       v1.AddOrder(o2);
 
-      CollectionAssert.AreEqual(oList, v1.GetOrders());
+      Assert.AreEqual(o1, v1.GetAllOrders()[0]);
+      Assert.AreEqual(o2, v1.GetAllOrders()[1]);
+    }
+
+    [TestMethod]
+    public void GetAllOrders_ReturnOrders_OrderList()
+    {
+      Vendor v1 = new Vendor("Suzie's Cafe");
+      Order o1 = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
+      Order o2 = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
+      List<Order> oList = new List<Order> { o1, o2 };
+      v1.AddOrder(o1);
+      v1.AddOrder(o2);
+
+      CollectionAssert.AreEqual(oList, v1.GetAllOrders());
     }
 
     [TestMethod]
@@ -61,6 +75,14 @@ namespace VendorOrderTracker.Tests
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
       Assert.AreEqual(1, v1.Id);
+    }
+
+    public void Find_ReturnVendorWithId_Vendor()
+    {
+      Vendor v1 = new Vendor("Suzie's Cafe");
+      Vendor v2 = new Vendor("Lee's Pizza Parlour");
+
+      Assert.AreEqual(v1, Vendor.Find(1));
     }
   }
 }
