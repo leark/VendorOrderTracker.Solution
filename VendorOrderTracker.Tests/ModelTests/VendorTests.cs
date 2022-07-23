@@ -55,5 +55,12 @@ namespace VendorOrderTracker.Tests
 
       CollectionAssert.AreEqual(oList, v1.GetOrders());
     }
+
+    [TestMethod]
+    public void Id_ReturnId_Int()
+    {
+      Vendor v1 = new Vendor("Suzie's Cafe");
+      Assert.AreEqual(1, v1.Id);
+    }
   }
 }

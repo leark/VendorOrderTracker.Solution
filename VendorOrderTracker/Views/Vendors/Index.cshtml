@@ -1,9 +1,33 @@
 @{
   Layout = "_Layout";
 }
+@using VendorOrderTracker.Models;
 
 <div class="container">
   <h3>Vendor List Page</h3>
-  <a href="/vendors/new">Create a new vendor</a>
-  <a href="/">Go Back to Main</a>
+  <div>
+    @{
+      List<Vendor> vendors = Vendor.GetAllVendors();
+      if (vendors.Count > 0)
+      {
+        <ul>
+          @foreach (Vendor v in vendors)
+          {
+            <li><a href="/vendors/@v.Id">@v.Name</a></li>
+          }
+        </ul>
+      }
+      else
+      {
+        <h5>There are currently no vendors.</h5>
+      }
+    }
+  </div>
+
+  <div>
+    <a href="/vendors/new">Create a new vendor</a>
+  </div>
+  <div>
+    <a href="/">Go Back to Main</a>
+  </div>
 </div>

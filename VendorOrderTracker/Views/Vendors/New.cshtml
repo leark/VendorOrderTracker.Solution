@@ -3,11 +3,16 @@
 }
 
 <div class="container">
-  <h3>Create a New Vendor</h3>
-  <form action="/vendors/create" method="post">
-    <label for="vendorName">Vendor Name</label>
-    <input name="vendorName" id="vendorName" type="text" required>
-    <button type="submit">Add vendor</button>
-  </form>
-  <a href="/">Go Back to Main</a>
+  <div>
+    <h3>Create a New Vendor</h3>
+    <form action="/vendors" method="post">
+      <label for="vendorName">Vendor Name</label>
+      <input name="vendorName" id="vendorName" type="text" required>
+      <button type="submit">Add vendor</button>
+    </form>
+  </div>
+
+  <div>
+    <a href="../">Go Back to Main</a>
+  </div>
 </div>
