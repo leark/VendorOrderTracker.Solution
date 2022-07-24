@@ -32,7 +32,16 @@ namespace VendorOrderTracker.Models
 
     public void RemoveOrder(Order order)
     {
+      Order.Remove(order.Id);
       Orders.Remove(order);
+    }
+
+    public void RemoveAllOrders()
+    {
+      foreach (Order order in Orders)
+      {
+        RemoveOrder(order);
+      }
     }
 
     public static List<Vendor> GetAllVendors()
@@ -53,7 +62,9 @@ namespace VendorOrderTracker.Models
 
     public static void Remove(int id)
     {
-      _vendors.Remove(Find(id));
+      Vendor vendor = Find(id);
+      vendor.RemoveAllOrders();
+      _vendors.Remove(vendor);
     }
   }
 }

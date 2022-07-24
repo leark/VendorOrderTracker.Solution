@@ -36,7 +36,7 @@ namespace VendorOrderTracker.Controllers
     [HttpPost("/vendors/{id}")]
     public ActionResult Destroy(int id)
     {
-
+      Vendor.Remove(id);
       return RedirectToAction("Index", "Home");
     }
 

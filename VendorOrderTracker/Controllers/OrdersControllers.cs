@@ -29,7 +29,6 @@ namespace VendorOrderTracker.Controllers
     {
       Vendor vendor = Vendor.Find(vendorId);
       vendor.RemoveOrder(Order.Find(orderId));
-      Order.Remove(orderId);
       return RedirectToAction("Show", "Vendors", vendor);
     }
   }
