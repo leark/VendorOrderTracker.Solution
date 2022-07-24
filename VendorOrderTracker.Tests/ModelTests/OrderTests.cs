@@ -56,11 +56,11 @@ namespace VendorOrderTracker.Tests
     }
 
     [TestMethod]
-    public void Remove_RemoveOrderById_Order()
+    public void Remove_RemoveOrderById_Null()
     {
       Order order = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
       Order.Remove(1);
-      Assert.AreEqual(Order.Find(1), null);
+      Assert.AreEqual(null, Order.Find(1));
     }
   }
 }

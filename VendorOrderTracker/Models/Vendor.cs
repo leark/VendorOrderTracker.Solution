@@ -30,6 +30,11 @@ namespace VendorOrderTracker.Models
       Orders.Add(order);
     }
 
+    public void RemoveOrder(Order order)
+    {
+      Orders.Remove(order);
+    }
+
     public static List<Vendor> GetAllVendors()
     {
       return _vendors;
@@ -44,6 +49,11 @@ namespace VendorOrderTracker.Models
     public static Vendor Find(int id)
     {
       return _vendors.Find(x => x.Id == id);
+    }
+
+    public static void Remove(int id)
+    {
+      _vendors.Remove(Find(id));
     }
   }
 }

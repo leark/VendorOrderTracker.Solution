@@ -33,13 +33,19 @@ namespace VendorOrderTracker.Controllers
       return View(vendor);
     }
 
+    [HttpPost("/vendors/{id}")]
+    public ActionResult Destroy(int id)
+    {
+
+      return RedirectToAction("Index", "Home");
+    }
+
     [HttpPost("/vendors/{id}/orders")]
     public ActionResult Create(int id, string title, string desc, int price, string date)
     {
-      int[] dateArray = new int[3] { 2022, 7, 22 };
       string[] dateSA = date.Split("-");
       int[] dateIA = new int[3] { int.Parse(dateSA[0]), int.Parse(dateSA[1]), int.Parse(dateSA[2]) };
-      Order order = new Order(title, desc, price, dateArray);
+      Order order = new Order(title, desc, price, dateIA);
       Vendor vendor = Vendor.Find(id);
       vendor.AddOrder(order);
       return RedirectToAction("Show", vendor);

@@ -84,5 +84,13 @@ namespace VendorOrderTracker.Tests
 
       Assert.AreEqual(v1, Vendor.Find(1));
     }
+
+    public void Remove_RemoveVendorWithId_Void()
+    {
+      Vendor v1 = new Vendor("Suzie's Cafe");
+      Vendor v2 = new Vendor("Lee's Pizza Parlour");
+
+      Assert.AreEqual(v1, Vendor.Find(1));
+    }
   }
 }

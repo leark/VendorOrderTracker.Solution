@@ -25,10 +25,12 @@ namespace VendorOrderTracker.Controllers
     }
 
     [HttpPost("/vendors/{vendorId}/orders/{orderId}")]
-    public ActionResult Destroy(int orderId)
+    public ActionResult Destroy(int vendorId, int orderId)
     {
+      Vendor vendor = Vendor.Find(vendorId);
+      vendor.RemoveOrder(Order.Find(orderId));
       Order.Remove(orderId);
-      return RedirectToAction("Show", "Vendors");
+      return RedirectToAction("Show", "Vendors", vendor);
     }
   }
 }
