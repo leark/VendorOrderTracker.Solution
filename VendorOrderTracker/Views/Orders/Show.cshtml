@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+@using VendorOrderTracker.Models;
+
+@{
+  Vendor vendor = Model["vendor"];
+  Order order = Model["order"];
+}
+
+<div class="container">
+  <h5>Order by @vendor.Name</h5>
+  <h6>@order.Title</h6>
+  <h6>@order.Desc</h6>
+  <h6>$@order.Price</h6>
+  <h6>@order.Date.Year - @order.Date.Month - @order.Date.Day</h6>
+  <div>
+    <form action="/vendors/@vendor.Id/orders/@order.Id" method="post">
+      <button type="submit">Remove Order</button>
+    </form>
+  </div>
+</div>

@@ -9,8 +9,12 @@
     List<Order> orders = Model.GetAllOrders();
     if (orders.Count > 0)
     {
+      <h6>Orders: </h6>
       <ul>
-        <li><a>They have orders.</a></li>
+        @foreach (Order order in orders)
+        {
+          <li><a href="/vendors/@Model.Id/orders/@order.Id">@order.Title</a></li>
+        }
       </ul>
     }
     else

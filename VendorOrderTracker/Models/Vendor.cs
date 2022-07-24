@@ -9,7 +9,7 @@ namespace VendorOrderTracker.Models
     public int Id { get; }
     private List<Order> Orders;
     // private int Id;
-    private static List<Vendor> _vendors = new List<Vendor> { };
+    private static List<Vendor> _vendors = new List<Vendor>();
     private static int _id = 0;
     public Vendor(string name)
     {
@@ -37,7 +37,7 @@ namespace VendorOrderTracker.Models
 
     public static void ClearAllVendors()
     {
-      _vendors = new List<Vendor> { };
+      _vendors = new List<Vendor>();
       _id = 0;
     }
 
