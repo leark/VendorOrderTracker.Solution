@@ -2,7 +2,7 @@
 
 #### By _Seung Lee_
 
-#### _A simple application._
+#### _A simple website that lets a user to add vendors and orders for the vendors._
 
 ## Technologies Used
 
@@ -15,11 +15,12 @@
 
 ## Description
 
-
+A simple website where a user can add vendors and orders for the vendors that were added. Users can click on the names of vendors they've added to create an order with title, description, price and order date. Clicking on the order on vendor page lets users to be able to see the details of the order. Users can also delete the orders or vendors by clicking on a button on respective pages.
 
 ## Setup/Installation Requirements
+_Requires console application such as Git Bash, Terminal, or PowerShell_
 
-1. Open Git Bash if on Windows and terminal if on Mac
+1. Open Git Bash or PowerShell if on Windows and Terminal if on Mac
 2. Run the command
 
     ``git clone https://github.com/leark/VendorOrderTracker.Solution.git``
@@ -35,7 +36,7 @@
 
 <details>
 <summary><strong>To Run</strong></summary>
-Navigate to  
+Navigate to the following directory in the console
    <pre>VendorOrderTracker.Solution
    ├── <strong>VendorOrderTracker</strong>
    └── VendorOrderTracker.Tests</pre>
@@ -52,7 +53,7 @@ Then run the following command in the console
 
 <details>
 <summary><strong>For Testing</strong></summary>
-Navigate to  
+Navigate to the following directory in the console
     <pre>VendorOrderTracker.Solution
     ├── VendorOrderTracker
     └── <strong>VendorOrderTracker.Tests</strong></pre>
