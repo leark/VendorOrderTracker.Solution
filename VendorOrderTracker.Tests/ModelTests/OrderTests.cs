@@ -10,7 +10,7 @@ namespace VendorOrderTracker.Tests
   {
     public void Dispose()
     {
-      // Deck.ClearAll();
+      Order.ClearAll();
     }
 
     [TestMethod]
@@ -46,6 +46,21 @@ namespace VendorOrderTracker.Tests
     {
       Order order = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
       Assert.AreEqual(new DateTime(2022, 7, 22), order.Date);
+    }
+
+    [TestMethod]
+    public void Find_ReturnOrderFromId_Order()
+    {
+      Order order = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
+      Assert.AreEqual(Order.Find(1), order);
+    }
+
+    [TestMethod]
+    public void Remove_RemoveOrderById_Order()
+    {
+      Order order = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
+      Order.Remove(1);
+      Assert.AreEqual(Order.Find(1), null);
     }
   }
 }

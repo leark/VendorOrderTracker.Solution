@@ -35,5 +35,11 @@ namespace VendorOrderTracker.Models
     {
       _orders.Remove(Find(id));
     }
+
+    public static void ClearAll()
+    {
+      _orders = new List<Order>();
+      _id = 0;
+    }
   }
 }
