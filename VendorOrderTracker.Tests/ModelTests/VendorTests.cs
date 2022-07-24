@@ -62,7 +62,7 @@ namespace VendorOrderTracker.Tests
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
       Order o1 = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
-      Order o2 = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
+      Order o2 = new Order("Other Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
       List<Order> oList = new List<Order> { o1, o2 };
       v1.AddOrder(o1);
       v1.AddOrder(o2);
@@ -93,22 +93,27 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(null, Vendor.Find(1));
     }
 
-    public void AddOrder_AddOrderWithOrder_Null()
-    {
-      Vendor v1 = new Vendor("Suzie's Cafe");
-      Assert.AreEqual(null, Vendor.Find(1));
-    }
-
     public void RemoveOrder_RemoveOrderWithOrder_Null()
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
-      Assert.AreEqual(null, Vendor.Find(1));
+      Order o1 = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
+      Order o2 = new Order("Other Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
+      v1.AddOrder(o1);
+      v1.AddOrder(o2);
+
+      v1.RemoveOrder(o1);
+      Assert.AreEqual(null, v1.GetAllOrders()[0]);
     }
 
     public void RemoveAllOrders_RemoveAllOrders_Null()
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
-      Assert.AreEqual(null, Vendor.Find(1));
+      Order o1 = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
+      Order o2 = new Order("Other Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
+      v1.AddOrder(o1);
+      v1.AddOrder(o2);
+      v1.RemoveAllOrders();
+      CollectionAssert.AreEqual(null, v1.GetAllOrders());
     }
   }
 }
