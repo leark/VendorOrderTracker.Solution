@@ -96,7 +96,7 @@ namespace VendorOrderTracker.Tests
     }
 
     [TestMethod]
-    public void RemoveOrder_RemoveOrderWithOrder_Null()
+    public void RemoveOrder_RemoveOrderWithOrder_OrderList()
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
       Order o1 = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
@@ -104,12 +104,13 @@ namespace VendorOrderTracker.Tests
       v1.AddOrder(o1);
       v1.AddOrder(o2);
 
+      List<Order> oList = new List<Order> { o2 };
       v1.RemoveOrder(o1);
-      Assert.AreNotEqual(o1, v1.GetAllOrders()[0]);
+      CollectionAssert.AreEqual(oList, v1.GetAllOrders());
     }
 
     [TestMethod]
-    public void RemoveAllOrders_RemoveAllOrders_Null()
+    public void RemoveAllOrders_RemoveAllOrders_OrderList()
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
       Order o1 = new Order("Croissants", "12 Nutella filled, 12 strawberry jam filled", 72, new int[3] { 2022, 7, 22 });
