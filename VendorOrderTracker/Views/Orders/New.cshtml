@@ -6,14 +6,22 @@
   <div>
     <h3>Create a New Order</h3>
     <form action="/vendors/@Model.Id/orders" method="post">
-      <label for="title">Order Title</label>
-      <input name="title" id="title" type="text" required>
-      <label for="desc">Order Description</label>
-      <input name="desc" id="desc" type="text" required>
-      <label for="price">Order Price</label>
-      <input name="price" id="price" type="number" required>
-      <label for="date">Order Date</label>
-      <input name="date" id="date" type="date" required>
+      <div>
+        <label for="title" class="form-label">Order Title</label>
+        <input name="title" id="title" type="text" required>
+      </div>
+      <div>
+        <label for="desc" class="form-label">Order Description</label>
+        <input name="desc" id="desc" type="text" required>
+      </div>
+      <div>
+        <label for="price" class="form-label">Order Price</label>
+        <input name="price" id="price" type="number" required>
+      </div>
+      <div>
+        <label for="date" class="form-label">Order Date</label>
+        <input name="date" id="date" type="date" required>
+      </div>
       <button type="submit">Add Order</button>
     </form>
   </div>
