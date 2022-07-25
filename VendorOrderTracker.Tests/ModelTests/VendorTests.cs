@@ -77,6 +77,7 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(1, v1.Id);
     }
 
+    [TestMethod]
     public void Find_ReturnVendorWithId_Vendor()
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
@@ -85,6 +86,7 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(v1, Vendor.Find(1));
     }
 
+    [TestMethod]
     public void Remove_RemoveVendorWithId_Null()
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
@@ -93,6 +95,7 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(null, Vendor.Find(1));
     }
 
+    [TestMethod]
     public void RemoveOrder_RemoveOrderWithOrder_Null()
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
@@ -102,9 +105,10 @@ namespace VendorOrderTracker.Tests
       v1.AddOrder(o2);
 
       v1.RemoveOrder(o1);
-      Assert.AreEqual(null, v1.GetAllOrders()[0]);
+      Assert.AreNotEqual(o1, v1.GetAllOrders()[0]);
     }
 
+    [TestMethod]
     public void RemoveAllOrders_RemoveAllOrders_Null()
     {
       Vendor v1 = new Vendor("Suzie's Cafe");
@@ -113,7 +117,7 @@ namespace VendorOrderTracker.Tests
       v1.AddOrder(o1);
       v1.AddOrder(o2);
       v1.RemoveAllOrders();
-      CollectionAssert.AreEqual(null, v1.GetAllOrders());
+      CollectionAssert.AreEqual(new List<Order>(), v1.GetAllOrders());
     }
   }
 }

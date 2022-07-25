@@ -8,13 +8,12 @@ namespace VendorOrderTracker.Models
     public string Name { get; }
     public int Id { get; }
     private List<Order> Orders;
-    // private int Id;
     private static List<Vendor> _vendors = new List<Vendor>();
     private static int _id = 0;
     public Vendor(string name)
     {
       Name = name;
-      Orders = new List<Order> { };
+      Orders = new List<Order>();
       _vendors.Add(this);
       _id++;
       Id = _id;
@@ -40,8 +39,9 @@ namespace VendorOrderTracker.Models
     {
       foreach (Order order in Orders)
       {
-        RemoveOrder(order);
+        Order.Remove(order.Id);
       }
+      Orders = new List<Order>();
     }
 
     public static List<Vendor> GetAllVendors()

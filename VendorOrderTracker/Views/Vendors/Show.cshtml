@@ -23,8 +23,19 @@
     }
   }
   <div>
-    <a href="/vendors/@Model.Id/orders/new">Create an order</a>
+    <form action="/vendors/@Model.Id/orders/new" method="get">
+      <button>Create an order</button>
+    </form>
   </div>
+  @if (orders.Count > 0)
+  {
+    <div>
+      <form action="/vendors/@Model.Id/orders/all" method="post">
+        <input id="removeAllOrders" name="removeAllOrders" type="hidden" value="true">
+        <button type="submit">Remove all orders</button>
+      </form>
+    </div>
+  }
   <div>
     <form action="/vendors/@Model.Id" method="post">
       <button type="submit">Remove Vendor</button>

@@ -50,5 +50,13 @@ namespace VendorOrderTracker.Controllers
       vendor.AddOrder(order);
       return RedirectToAction("Show", vendor);
     }
+
+    [HttpPost("/vendors/{vendorId}/orders/all")]
+    public ActionResult Destroy(int vendorId, bool removeAllOrders)
+    {
+      Vendor vendor = Vendor.Find(vendorId);
+      vendor.RemoveAllOrders();
+      return RedirectToAction("Show", vendor);
+    }
   }
 }
